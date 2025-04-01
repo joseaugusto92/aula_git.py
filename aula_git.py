@@ -1,48 +1,39 @@
-# Funções para cada operação
-def somar(a, b):
-    return a + b
+    # ESTÁ TUDO APAGADO
 
-def subtrair(a, b):
-    return a - b
 
-def multiplicar(a, b):
-    return a * b
 
-def dividir(a, b):
-    if b != 0:
-        return a / b
-    else:
-        return "Erro: Divisão por zero"
+# Função para calcular a média
+def calcular_media(notas):
+    return sum(notas) / len(notas)
+
+# Função para entrada de dados dos alunos
+def entrada_notas():
+    alunos = {}
+    for i in range(1, 3):  # Para 2 alunos
+        nome = input(f"Digite o nome do aluno {i}: ")
+        notas = []
+        for j in range(1, 5):  # 4 notas por aluno
+            while True:
+                try:
+                    nota = float(input(f"Digite a nota {j} de {nome}: "))
+                    if 0 <= nota <= 10:
+                        notas.append(nota)
+                        break
+                    else:
+                        print("Nota deve ser entre 0 e 10.")
+                except ValueError:
+                    print("Entrada inválida! Digite um número.")
+        alunos[nome] = notas
+    return alunos
 
 # Função principal
-def calculadora():
-    print("Selecione a operação:")
-    print("1. Somar")
-    print("2. Subtrair")
-    print("3. Multiplicar")
-    print("4. Dividir")
+def calcular_media_alunos():
+    alunos = entrada_notas()
 
-    escolha = input("Digite o número da operação (1/2/3/4): ")
+    for nome, notas in alunos.items():
+        media = calcular_media(notas)
+        print(f"\nA média do aluno {nome} é: {media:.2f}")
 
-    if escolha not in ['1', '2', '3', '4']:
-        print("Opção inválida!")
-        return
+# Chama a função principal
+calcular_media_alunos()
 
-    try:
-        num1 = float(input("Digite o primeiro número: "))
-        num2 = float(input("Digite o segundo número: "))
-    except ValueError:
-        print("Entrada inválida! Por favor, insira um número.")
-        return
-
-    if escolha == '1':
-        print(f"{num1} + {num2} = {somar(num1, num2)}")
-    elif escolha == '2':
-        print(f"{num1} - {num2} = {subtrair(num1, num2)}")
-    elif escolha == '3':
-        print(f"{num1} * {num2} = {multiplicar(num1, num2)}")
-    elif escolha == '4':
-        print(f"{num1} / {num2} = {dividir(num1, num2)}")
-
-# Chama a função da calculadora
-calculadora()
