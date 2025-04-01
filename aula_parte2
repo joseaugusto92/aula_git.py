@@ -1,0 +1,21 @@
+# Função para gerar a sequência de Fibonacci até um número 'n' de termos
+def fibonacci_soma(n):
+    fibonacci_sequence = [0, 1]  # Começando com os dois primeiros números da sequência
+    
+    # Gerando a sequência de Fibonacci
+    for i in range(2, n):
+        proximo_numero = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        fibonacci_sequence.append(proximo_numero)
+    
+    # Calculando a soma dos números da sequência de Fibonacci
+    soma = sum(fibonacci_sequence)
+    
+    # Exibindo a sequência e a soma
+    print(f"Sequência de Fibonacci até {n} termos: {fibonacci_sequence}")
+    print(f"Soma dos {n} primeiros números de Fibonacci: {soma}")
+
+# Entrada do usuário
+n = int(input("Digite quantos termos da sequência de Fibonacci você deseja somar: "))
+
+# Chamando a função
+fibonacci_soma(n)
