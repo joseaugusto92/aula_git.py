@@ -1,4 +1,4 @@
-    # ESTÁ TUDO APAGADO
+    # AGORA É CALCULAR MÉDIA
 
 
 
